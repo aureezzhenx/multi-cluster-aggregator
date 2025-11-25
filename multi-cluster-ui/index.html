@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Multi-Cluster K8s Controller</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <!-- use your uploaded logo path -->
+      <img class="logo" src="https://fastapi.tiangolo.com/img/favicon.png" alt="logo" />
+      <h1>Multi-Cluster Controller</h1>
+    </header>
+
+    <section id="loginPanel" class="card center">
+      <h2>Sign in</h2>
+      <input id="username" type="text" placeholder="Username" autocomplete="username" />
+      <input id="password" type="password" placeholder="Password" autocomplete="current-password" />
+      <button id="loginBtn" class="primary">Login</button>
+      <p id="loginMsg" class="muted"></p>
+      <p class="muted small">UI will POST form to <code>/login</code> and store token for calls.</p>
+    </section>
+
+    <section id="dashboard" class="card" style="display:none;">
+      <div class="row top-row">
+        <div>
+          <label for="clusterSelect">Cluster</label>
+          <select id="clusterSelect" aria-label="Cluster"></select>
+        </div>
+        <div>
+          <label for="namespaceSelect">Namespace</label>
+          <select id="namespaceSelect" aria-label="Namespace"></select>
+        </div>
+        <div>
+          <label for="deploymentSelect">Deployment</label>
+          <select id="deploymentSelect" aria-label="Deployment"></select>
+        </div>
+        <div class="actions">
+          <button id="restartBtn" class="danger">Restart</button>
+          <button id="logoutBtn" class="ghost">Logout</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="panel">
+          <h3>Output</h3>
+          <pre id="output" class="output">No action yet</pre>
+        </div>
+
+        <div class="panel logs">
+          <h3>Activity Log <button id="downloadLogs" class="tiny">Download</button></h3>
+          <div id="logs"></div>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <button id="exportConsole" class="tiny">Console</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <small class="muted">Dark UI • Mobile-friendly • Actions logged locally (and forwarded to aggregator)</small>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

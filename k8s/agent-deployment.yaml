@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-agent
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8s-agent
+  template:
+    metadata:
+      labels:
+        app: k8s-agent
+    spec:
+      serviceAccountName: agent-sa
+      containers:
+        - name: agent
+          image: << INPUT >>
+          ports:
+            - containerPort: 8000
